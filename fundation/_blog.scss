@@ -1,0 +1,78 @@
+#blog{
+  padding-top: 100px;
+
+  @include SmallTab{
+    padding-top: 200px;
+  }
+
+  .blog__inner.show{
+
+    .blog__title{
+
+      span{
+        animation: showText ease 1s backwards;
+      }
+
+      &::before{
+        animation:scrollright 1s 0.2s backwards;
+        transform-origin: left 0px;/*左上基点*/
+      }
+    }
+
+    .blog-cards{
+      animation: showText ease 1.5s 1.3s backwards;
+    }
+
+    .blog__view{
+      animation-name:fadeUpAnime;
+      animation-duration:1.5s;
+      animation-delay: 2s;
+      animation-fill-mode:backwards;
+      opacity:1;
+    }
+  }
+
+  .cards-blog{
+    display: grid;
+    justify-content: center;
+    gap: 20px;
+    grid-template-columns: minmax(min-content, 290px)minmax(min-content, 290px);
+
+    @include SmallTab{
+      gap: 25px;
+      grid-template-columns: minmax(min-content, 230px)minmax(min-content, 230px)minmax(min-content, 230px)minmax(min-content, 230px);
+    }
+
+    .card-blog{
+
+      .card-blog__img{
+        width: 100%;
+      }
+
+      .card-blog__itemTitle{
+        letter-spacing: 2px;
+
+        .card-blog__date{
+          margin-top: 10px;
+          font-size: 12px;
+          font-weight: bold;
+
+            @include SmallTab{
+              margin-top: 15px;
+            }
+        }
+
+        .card-blog__discription{
+          margin-top: 10px;
+          font-size: 12px;
+          line-height: 1.5em;
+
+          @include SmallTab{
+            margin-top: 15px;
+          }
+        }
+
+      }//title
+    }//blogItem
+  }//container
+}//section

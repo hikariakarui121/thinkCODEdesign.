@@ -1,0 +1,42 @@
+#works{
+  padding-top: 100px;
+  
+  @include SmallTab{
+    padding-top: 200px;
+  }
+
+  .works__inner{
+    width: 100%;
+  }
+
+  .works__inner.show{
+
+    .works__title{
+
+      span{
+        animation: showText ease 1s backwards;
+      }
+
+      &::before{
+        animation:scrollright 1s 0.2s backwards;
+        transform-origin: left 0px;/*左上基点*/
+      }
+    }
+
+    .cards{
+      animation: showText ease 1.5s 1.3s backwards;
+    }
+
+    .works__paragraph{
+      animation: showText ease 1.5s 2s backwards;
+    }
+
+    .works__view{
+      animation-name:fadeUpAnime;
+      animation-duration:1.5s;
+      animation-delay: 2s;
+      animation-fill-mode:backwards;
+      opacity:1;
+    }
+  }
+}//section

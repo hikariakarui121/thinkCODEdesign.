@@ -1,0 +1,88 @@
+#contact{
+  padding-top: 115px;
+
+  @include SmallTab{
+    padding-top: 215px;
+  }
+  
+
+  .contact__inner{
+    background-color: #ECF5F7;
+    padding:45px 25px 60px;
+  }
+
+  .contact__inner.show{
+    animation: showText ease 1s .5s backwards;
+  }
+
+  .contact__title{
+    text-align: center;
+    transform: translateY(-160%);
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 10px;
+    
+  }
+
+  .contact__button{
+    text-align: center;
+    padding-bottom: 55px;
+    
+    a{
+      box-shadow: 2px 2px 5px rgb(123, 134, 145);
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 20px;
+      margin: 0 auto;
+      padding:25px 0px ;
+      max-width: 400px;
+      width: 100%;
+      display: block;
+      border: 1px solid $black;
+      background-color: #fff;
+      color: $black;
+
+      &:hover{
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .contact__text{
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.75em;
+    margin-bottom: 55px;
+    font-size: 12px;
+
+    @include SmallTab{
+      font-size: 14px;
+    }
+  }
+
+  .contact__call{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .contact__callText{
+      font-size: 12px;
+      font-weight: 600;
+
+      @include SmallTab{
+        font-size: 16px;
+      }
+    }
+
+
+    .contact__callButton{
+      margin-left: 30px;
+      font-size: 24px;
+      font-weight: 900;
+
+      @include SmallTab{
+        font-size: 32px;
+      }
+    }
+  }
+}

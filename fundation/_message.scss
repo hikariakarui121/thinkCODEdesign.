@@ -1,0 +1,84 @@
+#message{
+  padding-top: 300px;
+
+  @include OverTab{
+    padding-top: 270px;
+  }
+
+.message__inner.show{
+
+  .message__title{
+     span{
+      animation: showText ease 1s backwards;
+    }
+  }
+
+    .message__container{
+      animation: showText ease 1.5s 1.3s backwards;
+    }
+} 
+
+  .message__title{
+    font-size: 36px;
+    font-family: Arial block;
+    font-weight: 900;
+    padding-bottom: 70px;
+    letter-spacing: 10px;
+
+    @include SmallTab{
+      font-size: 62px;
+    }
+    @include MidTab{
+      padding-bottom: 30px;
+    }
+  }
+
+  .message__container{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+
+
+    @include MidTab{
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+
+    .message__text{
+      width: 100%;
+
+      @include MidTab{
+        width: 50%;
+   
+      }
+
+      p{
+        font-size: 12px;
+        line-height: 2em;
+
+        @include MidTab{
+          font-size: 14px;
+        }
+
+        &:not(:first-child){
+          padding-top: 20px;
+        }
+      }
+    }
+
+    .message__image{
+      width: initial;
+
+      text-align: right;
+
+      img{
+        width: 50%;
+
+        @include MidTab{
+          width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+#service{
+  padding-top: 100px;
+
+  @include SmallTab{
+    padding-top: 200px;
+  }
+
+  .service__inner.show{
+
+    .service__title{
+
+      span{
+        animation: showText ease 1s backwards;
+      }
+
+      &::before{
+        animation:scrollright 1s 0.2s backwards;
+        transform-origin: left 0px;/*左上基点*/
+      }
+    }
+
+    .service__items{
+      animation: showText ease 1.5s 1.3s backwards;
+    }
+
+    .service__paragraph{
+      animation: showText ease 1.5s 2s backwards;
+    }
+
+    .service__view{
+      animation-name:fadeUpAnime;
+      animation-duration:1.5s;
+      animation-delay: 2s;
+      animation-fill-mode:backwards;
+      opacity:1;
+    }
+  }
+
+}//section
+
+.service__paragraph, .works__paragraph{
+  margin-top: 50px;
+  font-size: 12px;
+  line-height: 2em;
+  padding-left: 0px;
+
+  @include OverTab{
+    padding-left: 30px;
+    font-size: 14px;
+  }
+
+}

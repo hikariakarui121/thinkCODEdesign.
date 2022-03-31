@@ -1,0 +1,126 @@
+.footer{
+  padding: 60px 25px 0px;
+  box-sizing: border-box;
+
+  @include SmallTab{
+    padding-top: 200px;
+  }
+
+  .footer__inner{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $black;
+    padding-bottom: 40px;
+
+    @include SmallTab{
+      padding-bottom: 60px;
+      justify-content: space-between;
+    }
+  }
+
+  .footer__logo{
+    font-size: 20px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    opacity:1;
+  
+      &.animationTarget{
+        opacity:0;
+  
+        &.show{
+          animation-name:fadeUpAnime;
+          animation-duration:1s;
+          animation-fill-mode:backwards;
+          opacity:1;
+        }
+      }
+
+    @include SmallTab{
+      font-size: 24px;
+    }
+
+    img{
+      max-width: 70px;
+      width: 60px;
+      margin-right: 10px;
+
+      @include SmallTab{
+        margin-right: 20px;
+        width: 100%;
+      }
+    }
+    
+  }
+
+  .footer__nav{
+    display:none;
+
+    @include OverTab{
+      display: flex;
+    }
+
+    .footer__nav-item{
+      list-style: none;
+
+      &:not(:first-child){
+        margin-left: 50px;
+      }
+
+      &.animationTarget{
+        opacity:0;
+  
+        &.show{
+          animation-name:fadeUpAnime;
+          animation-duration:1s;
+          animation-fill-mode:backwards;
+          opacity:1;
+        }
+      }
+
+      a{
+        display: block;
+        font-size: 16px;
+        text-decoration: none;
+        color: $black;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.footerSec{
+  margin-top:40px;
+  margin-bottom: 50px;
+  padding: 0px 25px;
+  box-sizing: border-box;
+
+  @include SmallTab{
+    margin-top:60px;
+    margin-bottom: 100px;
+  }
+
+  .footer__inner{
+
+    .footer__info{
+      font-size: 10px;
+      line-height: 2em;
+      margin-bottom: 20px;
+
+      @include SmallTab{
+        font-size: 12px;
+      }
+    }//info
+
+    .footer__copyright{
+      font-size: 8px;
+      line-height: 1.5;
+      font-weight: 900;
+
+      @include SmallTab{
+        font-size: 12px;
+      }
+    }//copyright
+
+  }
+}

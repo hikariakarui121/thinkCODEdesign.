@@ -1,0 +1,210 @@
+.header{
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  opacity: 0;
+  z-index: 10;
+  visibility: hidden;
+  transition: .5s;
+
+  &.-open{
+    transform: none;
+    opacity: 1;
+    visibility:visible;
+  }
+
+  .header__inner{
+    display: flex;
+    align-items: center;
+    height: 60px;
+    justify-content: space-between;
+    padding: 0px 25px ;
+    box-sizing: border-box;
+
+    @include OverTab{
+      height: 140px;
+    }
+    @include KeyTab{
+      padding: 0px ;
+    }
+
+    .header__logo{
+      font-size: 22px;
+      color: $black;
+
+      @include OverTab{
+        font-size: 40px; 
+        animation: fadedownAnime 1s ease backwards;
+      }
+    }
+
+    .header__globalNav{
+      opacity: 0;
+      visibility: hidden;
+      position: fixed;
+      top: 0;
+      left:0;
+      z-index: 1;
+      width: 100%;
+      line-height: 60px;
+      transition: 0.3s;
+
+      &.-open{
+        opacity: 1;
+        visibility: visible;
+        position: fixed;
+        top: 0;
+        left:0;
+        opacity: 1;
+        visibility: visible;
+        display: block;
+        height: 100vh;
+        background-color: #454545;
+
+        a{
+          color: #fff;
+        }
+
+      }
+
+      @include OverTab{
+        opacity: 1;
+        visibility: visible;
+        position: static;
+        display: block;
+        width: initial;
+      }
+    }
+
+    .header__items{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      margin-top: 50px;
+
+      @include OverTab{
+        flex-direction: row;
+        margin-top:0px;
+      }
+
+      .header__item{
+
+        &:not(:first-child){
+
+          @include OverTab{
+            margin-left: 50px;
+          }
+        }
+
+        a{
+          font-weight: 600;
+          width: 100%;
+          display: block;
+          font-size:16px; 
+          text-decoration: none;
+          font-family: Roboto, noto-sans-cjk-jp, sans-serif;
+          letter-spacing: 0.08em;
+          color: #454545;
+          transition: all 0.4s cubic-bezier(.4,0,.2,1);
+          position: relative;
+
+            &::after{
+              content: '';
+              display: block;
+              position: absolute;
+              left: 0;
+              width: 100%;
+              bottom: 15px;
+              border-bottom: 1px solid;
+              border-color: #454545;
+              transform: scaleX(0);
+              transition: transform .4s;
+              transition-timing-function: cubic-bezier(.4,0,.2,1);
+              transform-origin: right;
+            }
+
+            &:hover{
+
+              &::after{
+                transform: scaleX(1);
+                transition-delay: .05s;
+                transform-origin: left;
+              }
+            }
+        }//a
+
+        @include OverTab{
+          animation-name: fadedownAnime;
+          animation-duration: 1s;
+          animation-fill-mode:backwards;
+          animation-timing-function: ease;
+        }
+
+      }//li
+
+    }//ul
+  }//inner
+}//header
+
+//ボタン
+
+.header__menuButton{
+  z-index: 10;
+  display: block;
+  height: 60px;
+  width: 60px;
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  @include OverTab{
+    display: none;
+  }
+
+  & div{
+    height: 1px;
+    width: 50%;
+    background-color: #333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s;
+    transform-origin: 0% 50%;
+
+    &:nth-of-type(1){
+      transform: translate(-50%, -10px);
+      transform-origin: 0% 50%;
+    }
+
+    &:nth-of-type(3){
+      left: 50%;
+      width: 25%;
+      transform: translate(0, 10px);
+      transform-origin: 0% 50%;
+    }
+  }
+
+  &.-open{
+    
+    & div{
+      background-color: #fff;
+    }
+
+    & div:nth-of-type(1){
+      transform: rotate(45deg) translate(-50%, 0px);
+   
+    }
+
+    & div:nth-of-type(2){
+      transform:rotate(-45deg) translate(-50%, -50%) ;
+      // transform-origin: 0% 50%;
+    }
+
+    & div:nth-of-type(3){
+      opacity: 0;
+      
+    }
+
+  }
+}
